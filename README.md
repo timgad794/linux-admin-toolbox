@@ -26,7 +26,7 @@ Fokus auf Server-Hardening und Schwachstellenanalyse (LPIC Topic 108 & HTB Prep)
 
 ## 🚀 Installation & Nutzung
 
-1. Repository klonen:
+1. **Repository klonen:**
    ```bash
    git clone [https://github.com/timgad794/linux-admin-toolbox.git](https://github.com/timgad794/linux-admin-toolbox.git)
    cd linux-admin-toolbox
