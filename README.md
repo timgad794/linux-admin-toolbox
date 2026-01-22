@@ -30,11 +30,9 @@ Fokus auf Server-Hardening und Schwachstellenanalyse (LPIC Topic 108 & HTB Prep)
    ```bash
    git clone [https://github.com/timgad794/linux-admin-toolbox.git](https://github.com/timgad794/linux-admin-toolbox.git)
    cd linux-admin-toolbox
-
+   2. Skripte ausführbar machen:
    chmod +x *.sh
-
    # Für den allgemeinen System-Check:
-./system_check.sh
-
-# Für das Sicherheits-Audit:
-./security_audit.sh
+   ./system_check.sh
+   # Für das Sicherheits-Audit:
+   ./security_audit.sh
