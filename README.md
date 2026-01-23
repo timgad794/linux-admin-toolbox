@@ -29,3 +29,6 @@ Ein sicherheitsorientiertes Skript zur Identifikation von Fehlkonfigurationen un
    ```bash
    git clone [https://github.com/timgad794/linux-admin-toolbox.git](https://github.com/timgad794/linux-admin-toolbox.git)
    cd linux-admin-toolbox
+  
+   chmod +x *.sh
+   sudo ./security_audit.sh
