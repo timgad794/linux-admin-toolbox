@@ -5,31 +5,35 @@
 # Projekt: LPIC-1 & Security Audit Tool
 # ------------------------------------------------------------------
 
+# Farben für Terminal
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+# Prüfung: Läuft das Skript als root?
+if [[ $EUID -ne 0 ]]; then
+   printf "${RED}Fehler: Dieses Skript benötigt root-Rechte für den SUID-Check.${NC}\n"
+   exit 1
+fi
+
 # 1. Variablen & Log-Setup
 LOG_DIR="./audit_logs"
 mkdir -p "$LOG_DIR"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 LOG_FILE="$LOG_DIR/audit_$TIMESTAMP.log"
 
-# Farben für Terminal
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-GREEN='\033[0;32m'
-NC='\033[0m'
-
-# 2. Log-Funktion (Robust für Bash & Sh)
+# Log-Funktion
 log_message() {
-    echo -e "$1"
-    echo -e "$2" >> "$LOG_FILE"
+    printf "$1\n"
+    printf "$2\n" >> "$LOG_FILE"
 }
 
-# Header in Log schreiben
+# Header
 echo "--- Audit gestartet am $(date) ---" > "$LOG_FILE"
-
-# 3. Audit-Start
 log_message "${RED}--- SECURITY & WEB AUDIT START ---${NC}" ""
 
-# Web-Server Check
+# 2. Web-Server Check
 log_message "${YELLOW}[*] Suche nach Webservern...${NC}" "[*] Webserver-Check:"
 if pgrep -x "apache2" > /dev/null; then
     log_message "${GREEN}[+] Apache gefunden.${NC}" "Apache gefunden."
@@ -40,12 +44,14 @@ else
     log_message "${RED}[-] Kein Webserver aktiv.${NC}" "Kein Webserver aktiv."
 fi
 
-# SUID-Check (Wichtig für HTB & LPIC 104.5)
-log_message "\n${YELLOW}[*] SUID-Files (Angriffspunkte):${NC}" "[*] SUID-Files:"
+# 3. SUID-Check (LPIC 104.5)
+log_message "\n${YELLOW}[*] SUID-Files (Top 5 Angriffspunkte):${NC}" "[*] SUID-Files:"
 find /usr/bin -perm -4000 -type f 2>/dev/null | head -n 5 >> "$LOG_FILE"
+find /usr/bin -perm -4000 -type f 2>/dev/null | head -n 5 | sed 's/^/  /'
 
-# Ports-Check (LPIC 109.2)
+# 4. Ports-Check (LPIC 109.2)
 log_message "\n${YELLOW}[*] Listening Ports:${NC}" "[*] Netzwerk-Ports:"
 ss -tuln | grep LISTEN >> "$LOG_FILE"
+ss -tuln | grep LISTEN | head -n 5 | sed 's/^/  /'
 
 log_message "\n${GREEN}[+] Audit abgeschlossen. Log: $LOG_FILE${NC}" ""
