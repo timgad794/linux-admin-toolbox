@@ -27,7 +27,7 @@ Ein sicherheitsorientiertes Skript zur Identifikation von Fehlkonfigurationen un
 
 1. **Repository klonen:**
    ```bash
-   git clone [https://github.com/timgad794/linux-admin-toolbox.git](https://github.com/timgad794/linux-admin-toolbox.git)
+   git clone https://github.com/timgad794/linux-admin-toolbox.git
    cd linux-admin-toolbox
   
    chmod +x *.sh
