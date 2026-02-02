@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # ------------------------------------------------------------------
-# Autor: Tim Gad (timgad794)
-# Projekt: LPIC-1 & Security Audit Tool
+# Author: Mohamed Rahmoune (timgad794)
+# GitHub: github.com/timgad794
+# License: MIT
 # ------------------------------------------------------------------
 
 # Farben für Terminal
