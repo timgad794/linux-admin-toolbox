@@ -1,34 +1,27 @@
-# 🐧 Linux-Admin- & Security-Toolbox
+# 🐧 Linux-Admin & Security Toolbox
 
-Dieses Repository dokumentiert meine praktische Ausbildung zum **Linux Systemadministrator** und **Security Specialist**. Es verbindet die theoretischen Lernziele der **LPIC-1** (Linux Professional Institute) mit den praktischen Herausforderungen der **Hack The Box Academy**.
+Dieses Repository dokumentiert meine praktische Ausbildung zum **Linux Systemadministrator** und meine Projekte im Bereich **Cyber Security**. Es verbindet LPIC-1 Lernziele mit praktischen Challenges der **Hack The Box Academy**.
 
-📍 **Ziel:** Junior IT-Rolle im Raum **Dresden**.
-
----
-
-## 🚀 Kernmodule & Skripte
-
-### 📊 1. System-Monitoring (`system_check.sh`)
-Ein Tool zur schnellen Diagnose des Systemzustands, entwickelt zur Automatisierung täglicher Admin-Aufgaben.
-- **LPIC-Themen:** 101.3 (Boot-Logs), 102.1 (RAM/CPU-Management), 104.1 (Disk-Management) und 109.2 (Netzwerk-Konfiguration).
-- **Features:** Echtzeit-Check von Speicherplatz, RAM-Verfügbarkeit, Netzwerk-Schnittstellen und kritischen Systemmeldungen (`dmesg`).
-
-### 🛡️ 2. Security-Audit (`security_audit.sh`)
-Ein sicherheitsorientiertes Skript zur Identifikation von Fehlkonfigurationen und Angriffsvektoren.
-- **LPIC-Themen:** 104.5 (Berechtigungen/SUID) und 108.2 (System-Logging).
-- **Security-Fokus (HTB):** - Suche nach **SUID-Binaries** (Privilege Escalation Pfade).
-    - Erkennung aktiver Web-Infrastrukturen (Apache/Nginx).
-    - Port-Audit zur Analyse der Angriffsfläche.
-- **Logging:** Erstellt automatisch detaillierte Audit-Logs mit Zeitstempel im Ordner `./audit_logs`.
+📍 **Ziel:** Junior IT-Rolle / IT-Security im Raum **Dresden**.
 
 ---
 
-## 🛠 Installation & Nutzung
+## 🛡️ Industrial Security (HTB Academy)
+### ⚡ CIP Tag Reader (`cip_tag_reader.py`)
+Entwickelt für die **HTB Academy Challenge "Ether Tag"**.
+- **Funktion:** Automatisiertes Auslesen von Variablen (Tags) aus speicherprogrammierbaren Steuerungen (PLCs) via EtherNet/IP.
+- **Skills:** Python-Automatisierung, Industrial Control Systems (ICS), SCADA-Security.
 
-1. **Repository klonen:**
-   ```bash
-   git clone https://github.com/timgad794/linux-admin-toolbox.git
-   cd linux-admin-toolbox
-  
-   chmod +x *.sh
-   sudo ./security_audit.sh
+---
+
+## 📊 System-Administration (LPIC-1 Fokus)
+- **system_check.sh**: Schnelldiagnose von CPU, RAM, Disk und Netzwerk-Status.
+- **security_audit.sh**: Automatisiertes Audit zur Identifikation von SUID-Binaries und Fehlkonfigurationen.
+
+---
+
+## 🛠 Nutzung
+```bash
+git clone [https://github.com/timgad794/linux-admin-toolbox.git](https://github.com/timgad794/linux-admin-toolbox.git)
+cd linux-admin-toolbox
+chmod +x *.sh
