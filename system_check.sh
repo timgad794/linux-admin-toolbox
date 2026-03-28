@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ------------------------------------------------------------------
-# Author: Mohamed Rahmoune (timgad794)
+# Author: timgad794
 # GitHub: github.com/timgad794
 # License: MIT
 # ------------------------------------------------------------------
